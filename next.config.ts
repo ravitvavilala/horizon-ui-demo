@@ -1,4 +1,3 @@
-import path from "node:path";
 import type { NextConfig } from "next";
 import withSerwistInit from "@serwist/next";
 
@@ -10,8 +9,7 @@ const withSerwist = withSerwistInit({
   disable: process.env.NODE_ENV === "development",
 });
 
-const nextConfig: NextConfig = {
-  outputFileTracingRoot: path.resolve(__dirname, ".."),
-};
+// Standalone single-app repo — no monorepo file-tracing root needed.
+const nextConfig: NextConfig = {};
 
 export default withSerwist(nextConfig);
